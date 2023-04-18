@@ -6,10 +6,6 @@ import CartContext from "../../store/cart-context";
 import CartItem from "./CartItem";
 
 const Cart = (props) => {
-  //amount: 1
-  // id: "m1";
-  // name: "Sushi";
-  // price: 22.99;
   const cartCtx = useContext(CartContext);
 
   const totalAmount = `$${cartCtx.totalAmount.toFixed(2)}`;
@@ -20,7 +16,7 @@ const Cart = (props) => {
   };
 
   const cartItemAddHandler = (item) => {
-    cartCtx.addItem(item);
+    cartCtx.addItem({ ...item, amount: 1 });
   };
 
   const cartItems = (
